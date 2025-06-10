@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-key="pageTitleOrder"></title>
+    <meta name="description" data-key="metaDescriptionOrder">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo">TESLA</div>
+        
+        <div class="language-switcher">
+            <button onclick="setLanguage('ru')">RU</button>
+            <button onclick="setLanguage('uk')">UA</button>
+            <button onclick="setLanguage('en')">EN</button>
+        </div>
+        
+        <nav>
+            <a href="index.html" data-key="navHome"></a>
+            <a href="configurator.html" data-key="navConfigurator"></a>
+            <a href="order.html" class="active" data-key="navOrder"></a>
+            <a href="reviews.html" data-key="navReviews"></a>
+            <a href="contact.html" data-key="navContact"></a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="order-form" id="order">
+            <h2 data-key="orderFormTitle"></h2>
+            <form id="orderForm">
+                <label for="name" data-key="formNameLabel"></label>
+                <input type="text" id="name" name="name" data-key="formNamePlaceholder" required />
+                
+                <label for="email" data-key="formEmailLabel"></label>
+                <input type="email" id="email" name="email" data-key="formEmailPlaceholder" required />
+                
+                <label for="phone" data-key="formPhoneLabel"></label>
+                <input type="tel" id="phone" name="phone" data-key="formPhonePlaceholder" required pattern="^\+7\s?\(?\d{3}\)?\s?\d{3}[-\s]?\d{2}[-\s]?\d{2}$" />
+                
+                <button type="submit" class="btn" data-key="submitOrderBtn"></button>
+            </form>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="links">
+            <a href="index.html" data-key="navHome"></a>
+            <a href="configurator.html" data-key="navConfigurator"></a>
+            <a href="order.html" class="active" data-key="navOrder"></a>
+            <a href="reviews.html" data-key="navReviews"></a>
+            <a href="contact.html" data-key="navContact"></a>
+        </div>
+        <div data-key="footerRights"></div>
+    </footer>
+    
+    <script src="js/script.js"></script>
+    <script src="js/order.js"></script>
+</body>
+</html>

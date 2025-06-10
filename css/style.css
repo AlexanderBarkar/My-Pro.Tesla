@@ -1,0 +1,734 @@
+/* css/style.css */
+
+/* Сброс стилей и базовые настройки */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Основные цвета Tesla */
+  --tesla-black: #1a1a1a; /* Почти черный для фона */
+  --tesla-dark-gray: #333333; /* Темно-серый для секций */
+  --tesla-light-gray: #f5f5f5; /* Светло-серый для фонов */
+  --tesla-red: #e82127; /* Акцентный красный */
+  --tesla-white: #ffffff; /* Белый текст и элементы */
+  --tesla-text-gray: #999999; /* Серый текст */
+
+  /* Шрифты */
+  --font-family-primary: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Переходы и тени */
+  --transition-speed: 0.3s;
+  --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --shadow-dark: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+html {
+  scroll-behavior: smooth; /* Плавный скролл по якорям */
+}
+
+body {
+  font-family: var(--font-family-primary);
+  background: var(--tesla-white);
+  color: var(--tesla-black);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Общие элементы --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-speed) ease;
+}
+
+.btn {
+  background-color: var(--tesla-red);
+  color: var(--tesla-white);
+  padding: 12px 28px;
+  border: none;
+  border-radius: 4px; /* Tesla использует слегка скругленные углы */
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+  display: inline-flex; /* Используем flexbox для центрирования содержимого */
+  align-items: center;
+  justify-content: center;
+  min-width: 180px; /* Чтобы кнопки выглядели одинаково */
+  font-size: 16px;
+}
+
+.btn:hover {
+  background-color: #c41e24; /* Немного темнее красного */
+  transform: translateY(-2px); /* Легкий эффект поднятия */
+}
+
+.btn-secondary { /* Если понадобится второй стиль кнопки */
+  background-color: transparent;
+  color: var(--tesla-black);
+  border: 2px solid var(--tesla-black);
+  padding: 10px 26px;
+}
+
+.btn-secondary:hover {
+  background-color: var(--tesla-black);
+  color: var(--tesla-white);
+  transform: translateY(-2px);
+}
+
+/* --- Header --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  background-color: var(--tesla-black);
+  color: var(--tesla-white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow-dark);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: 5px;
+  color: var(--tesla-white); /* На случай если ссылка */
+}
+
+.language-switcher {
+  display: flex;
+  gap: 8px;
+}
+
+.language-switcher button {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: var(--tesla-white);
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all var(--transition-speed) ease;
+}
+
+.language-switcher button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--tesla-white);
+}
+
+.language-switcher button.active-lang {
+  background-color: var(--tesla-red);
+  border-color: var(--tesla-red);
+  font-weight: 700;
+}
+
+nav a {
+  color: var(--tesla-white);
+  margin-left: 28px;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: var(--tesla-red);
+  transition: width var(--transition-speed) ease;
+}
+
+nav a:hover::after, nav a.active::after {
+  width: 100%;
+}
+
+/* --- Hero Section (Главная страница) --- */
+.hero {
+  min-height: calc(100vh - 80px); /* Высота на весь экран минус хедер */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--tesla-white);
+  position: relative;
+  overflow: hidden;
+  background: #000; /* Fallback цвет */
+  /* Здесь можно добавить фоновое изображение или видео */
+  background-image: url('https://digitalassets.tesla.com/tesla-resources/image/upload/f_auto,q_auto/Homepage-Model-Y-Desktop-NA.jpg'); /* Пример URL */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Если хотите затемнение поверх изображения */
+  /* &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+  } */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-size: 4.5rem; /* ~72px */
+  margin-bottom: 12px;
+  font-weight: 900;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  animation: fadeInDown 1s ease-out;
+}
+
+.hero p {
+  font-size: 1.5rem; /* ~24px */
+  margin-bottom: 40px;
+  font-weight: 400;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  animation: fadeInUp 1s ease-out 0.2s;
+  animation-fill-mode: both; /* Сохраняет конечное состояние анимации */
+}
+
+.btn-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeInUp 1s ease-out 0.4s;
+  animation-fill-mode: both;
+}
+
+/* --- Features Section --- */
+.features {
+  background: var(--tesla-light-gray);
+  padding: 80px 24px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.features div {
+  flex: 1 1 200px; /* Гибкая ширина для каждого элемента */
+  padding: 15px;
+}
+
+.features h2 {
+  font-size: 2.5rem; /* ~40px */
+  color: var(--tesla-black);
+  margin-bottom: 8px;
+}
+
+.features p {
+  font-weight: 600;
+  color: var(--tesla-text-gray);
+  font-size: 1.1rem;
+}
+
+/* --- Video Section --- */
+.video {
+  padding: 80px 24px;
+  text-align: center;
+  background: var(--tesla-white);
+}
+
+.video h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: var(--tesla-black);
+}
+
+.video-container { /* Обертка для адаптивного видео */
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 900px; /* Максимальная ширина видео */
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow-light);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* --- Configurator Section (configurator.html) --- */
+.configurator {
+  padding: 80px 24px;
+  text-align: center;
+  background: var(--tesla-light-gray);
+}
+
+.configurator h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: var(--tesla-black);
+}
+
+.configurator-image {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  display: block; /* Убираем лишние отступы */
+  border-radius: 8px;
+  box-shadow: var(--shadow-light);
+  transition: opacity var(--transition-speed) ease;
+}
+
+.config-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.config-control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.config-control-group label {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--tesla-black);
+}
+
+.config-control-group select {
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid var(--tesla-text-gray);
+  background-color: var(--tesla-white);
+  color: var(--tesla-black);
+  cursor: pointer;
+  transition: border-color var(--transition-speed) ease;
+  outline: none;
+}
+
+.config-control-group select:focus {
+  border-color: var(--tesla-red);
+  box-shadow: 0 0 0 3px rgba(232, 33, 39, 0.2);
+}
+
+.price-display {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--tesla-black);
+  margin-bottom: 40px;
+}
+
+.order-btn-config {
+  margin-top: 20px;
+}
+
+/* --- Order Form (order.html) --- */
+.order-form {
+  padding: 80px 24px;
+  text-align: center;
+  background: var(--tesla-white);
+}
+
+.order-form h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: var(--tesla-black);
+}
+
+.order-form form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  background: var(--tesla-light-gray);
+  border-radius: 8px;
+  box-shadow: var(--shadow-light);
+}
+
+.order-form label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: left;
+  color: var(--tesla-black);
+  margin-bottom: 5px; /* Отступ между лейблом и инпутом */
+  display: block; /* Чтобы лейбл был на своей строке */
+}
+
+.order-form input {
+  padding: 12px 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: var(--tesla-white);
+  color: var(--tesla-black);
+  outline: none;
+  transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.order-form input:focus {
+  border-color: var(--tesla-red);
+  box-shadow: 0 0 0 3px rgba(232, 33, 39, 0.2);
+}
+
+.order-form button[type="submit"] {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* --- Reviews (reviews.html) --- */
+.reviews {
+  padding: 80px 24px;
+  text-align: center;
+  background: var(--tesla-white);
+}
+
+.reviews h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: var(--tesla-black);
+}
+
+.review-item {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  padding: 25px;
+  background: var(--tesla-light-gray);
+  border-radius: 8px;
+  box-shadow: var(--shadow-light);
+  text-align: left;
+}
+
+.review-item blockquote {
+  font-style: italic;
+  color: var(--tesla-black);
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.review-item p {
+  font-weight: 600;
+  color: var(--tesla-text-gray);
+  font-size: 0.95rem;
+  text-align: right;
+}
+
+/* --- Contact Page (contact.html) --- */
+.contact-section {
+  padding: 80px 24px;
+  text-align: center;
+  background: var(--tesla-light-gray);
+}
+
+.contact-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  color: var(--tesla-black);
+}
+
+.contact-info {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  background: var(--tesla-white);
+  border-radius: 8px;
+  box-shadow: var(--shadow-light);
+}
+
+.contact-info p {
+  font-size: 1.1rem;
+  color: var(--tesla-black);
+}
+
+.contact-info p strong {
+  color: var(--tesla-red);
+}
+
+.social-links {
+  margin-top: 20px;
+}
+
+.social-links a {
+  display: inline-block;
+  font-size: 2rem;
+  color: var(--tesla-black);
+  margin: 0 15px;
+  transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.social-links a:hover {
+  color: var(--tesla-red);
+  transform: translateY(-3px);
+}
+
+/* --- Footer --- */
+footer {
+  background: var(--tesla-black);
+  color: var(--tesla-text-gray);
+  padding: 20px 30px;
+  text-align: center;
+  margin-top: auto;
+  font-size: 0.9rem;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+}
+
+footer .links {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px 25px; /* Отступы между ссылками */
+}
+
+footer .links a {
+  color: var(--tesla-white);
+  font-weight: 600;
+  position: relative;
+}
+
+footer .links a::after { /* Такой же эффект подчеркивания, как в хедере */
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background-color: var(--tesla-red);
+  transition: width var(--transition-speed) ease;
+}
+
+footer .links a:hover::after, footer .links a.active::after {
+  width: 100%;
+}
+
+footer div:last-child {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: var(--tesla-text-gray);
+}
+
+
+/* --- Адаптивность --- */
+@media (max-width: 992px) {
+  .hero h1 {
+      font-size: 3.5rem;
+  }
+  .hero p {
+      font-size: 1.3rem;
+  }
+  .features h2 {
+      font-size: 2rem;
+  }
+  .video-container {
+      padding-bottom: 65%; /* Ближе к 4:3 для меньших экранов, если видео не 16:9 */
+  }
+  header {
+      flex-direction: column;
+      align-items: flex-start;
+      height: auto;
+      padding-bottom: 10px;
+  }
+  nav {
+      margin-top: 15px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+  nav a {
+      margin: 5px 15px;
+  }
+  .language-switcher {
+      margin-top: 10px;
+      align-self: flex-end; /* Переключатель языков справа */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+      min-height: 80vh;
+      padding: 80px 20px 40px;
+  }
+  .hero h1 {
+      font-size: 2.8rem;
+  }
+  .hero p {
+      font-size: 1.1rem;
+  }
+  .btn-group {
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 300px;
+  }
+  .btn {
+      width: 100%;
+  }
+  .features {
+      flex-direction: column;
+      gap: 30px;
+      padding: 60px 20px;
+  }
+  .features div {
+      flex: none; /* Убрать гибкость, чтобы они занимали полную ширину */
+      width: 100%;
+  }
+  .video-container {
+      padding-bottom: 75%; /* Еще больше для мобильных */
+  }
+  .order-form form, .review-item, .contact-info {
+      padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+      font-size: 20px;
+      letter-spacing: 3px;
+  }
+  header {
+      padding: 15px 15px;
+  }
+  .hero h1 {
+      font-size: 2.2rem;
+  }
+  .hero p {
+      font-size: 1rem;
+  }
+  .features h2 {
+      font-size: 1.8rem;
+  }
+  .features p {
+      font-size: 1rem;
+  }
+  .section-title, .video h2, .configurator h2, .order-form h2, .reviews h2, .contact-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+  }
+  .price-display {
+      font-size: 2rem;
+  }
+}
+
+/* --- Анимации --- */
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Новые стили для дополнительных секций контента на главной странице */
+.content-section {
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.content-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-section .section-title {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: var(--tesla-black);
+  max-width: 800px;
+}
+
+.content-section .section-description {
+  font-size: 1.3rem;
+  color: var(--tesla-text-gray);
+  margin-bottom: 40px;
+  max-width: 800px;
+  line-height: 1.5;
+}
+
+.content-section .section-image {
+  width: 100%;
+  max-width: 1000px; /* Максимальная ширина для больших изображений */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow-light);
+}
+
+/* Адаптивность для новых секций */
+@media (max-width: 768px) {
+  .content-section {
+      padding: 60px 20px;
+  }
+  .content-section .section-title {
+      font-size: 2.2rem;
+  }
+  .content-section .section-description {
+      font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-section .section-title {
+      font-size: 1.8rem;
+  }
+  .content-section .section-description {
+      font-size: 1rem;
+  }
+}
