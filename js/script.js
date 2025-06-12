@@ -379,7 +379,7 @@ function applyTranslations() {
   }
   const performanceSelect = document.getElementById('performance');
   if (performanceSelect) {
-      performanceSelect.querySelector('option[value="none"]').setAttribute('data-key', 'performanceNone');
+      performanceSelect.querySelector('option[value="no"]').setAttribute('data-key', 'performanceNone');
       performanceSelect.querySelector('option[value="yes"]').setAttribute('data-key', 'performanceYes');
       applyTranslationsForSelectOptions(performanceSelect);
   }

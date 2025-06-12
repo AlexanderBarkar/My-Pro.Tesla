@@ -1,14 +1,14 @@
-// Цены
 const basePrice = 50000;
 
 const options = {
     color: {
         white: 0,
+        black: 0,
         blue: 1000,
         red: 1500
     },
     wheels: {
-        '19': 50,
+        '19': 0,
         '20': 2000
     },
     interior: {
@@ -25,30 +25,20 @@ const options = {
     }
 };
 
-// Картинки
 const imageUrls = {
     'blue-20-black-standard-no': 'img/cars/model-y-blue-20-black-standard-no.jpg',
     'blue-20-black-standard-yes': 'img/cars/model-y-blue-20-black-standard-perf.jpg',
     'blue-20-white-standard-no': 'img/cars/model-y-blue-20-white-standard-no.jpg',
     'blue-20-white-standard-yes': 'img/cars/model-y-blue-20-white-standard-perf.jpg',
-
     'red-20-black-full-no': 'img/cars/model-y-red-20-black-fsd-no.jpg',
     'red-20-black-full-yes': 'img/cars/model-y-red-20-black-fsd-perf.jpg',
-
-    // Добавляй сюда остальные комбинации по необходимости...
-
-    'default': 'https://digitalassets.tesla.com/tesla-resources/image/upload/f_auto,q_auto/Homepage-Model-Y-Desktop-NA.jpg'
+    default: 'https://digitalassets.tesla.com/tesla-resources/image/upload/f_auto,q_auto/Homepage-Model-Y-Desktop-NA.jpg'
 };
 
-// Язык
-let currentLanguage = 'ru';
-
-// Запускаем при загрузке
 document.addEventListener('DOMContentLoaded', () => {
     updateConfig();
 });
 
-// Основная функция
 function updateConfig() {
     const selectedColor = document.getElementById('color').value;
     const selectedWheels = document.getElementById('wheels').value;
@@ -57,6 +47,7 @@ function updateConfig() {
     const selectedPerformance = document.getElementById('performance').value;
 
     let currentPrice = basePrice;
+
     currentPrice += options.color[selectedColor];
     currentPrice += options.wheels[selectedWheels];
     currentPrice += options.interior[selectedInterior];
@@ -74,12 +65,7 @@ function updateConfig() {
     const imageKey = `${selectedColor}-${selectedWheels}-${selectedInterior}-${selectedAutopilot}-${selectedPerformance}`;
     const carImage = document.getElementById('carImage');
 
-    if (imageUrls[imageKey]) {
-        carImage.src = imageUrls[imageKey];
-    } else {
-        carImage.src = imageUrls['default'];
-    }
+    carImage.src = imageUrls[imageKey] || imageUrls.default;
 }
 
-// Делаем доступным из HTML (onchange)
 window.updateConfig = updateConfig;

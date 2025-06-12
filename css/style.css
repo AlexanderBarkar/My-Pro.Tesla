@@ -176,7 +176,7 @@ nav a:hover::after, nav a.active::after {
   overflow: hidden;
   background: #000; /* Fallback цвет */
   /* Здесь можно добавить фоновое изображение или видео */
-  background-image: url('https://digitalassets.tesla.com/tesla-resources/image/upload/f_auto,q_auto/Homepage-Model-Y-Desktop-NA.jpg'); /* Пример URL */
+  background-image: url('https://www.carscoops.com/wp-content/uploads/2024/01/Tesla-Model-3-North-America-main.gif'); /* Пример URL */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
