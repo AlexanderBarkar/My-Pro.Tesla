@@ -32,7 +32,7 @@ const imageUrls = {
     'blue-20-white-standard-yes': 'img/cars/model-y-blue-20-white-standard-perf.jpg',
     'red-20-black-full-no': 'img/cars/model-y-red-20-black-fsd-no.jpg',
     'red-20-black-full-yes': 'img/cars/model-y-red-20-black-fsd-perf.jpg',
-    default: 'https://digitalassets.tesla.com/tesla-resources/image/upload/f_auto,q_auto/Homepage-Model-Y-Desktop-NA.jpg'
+    default: 'js/img/tesla_2.jpg'
 };
 
 document.addEventListener('DOMContentLoaded', () => {

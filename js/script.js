@@ -95,9 +95,9 @@ const translations = {
       // Контакты (contact.html)
       contactTitle: "Свяжитесь с нами",
       contactAddress: "Наш адрес: ",
-      contactAddressValue: "ул. Тесла, 1, Киев, Украина",
+      contactAddressValue: "ул. Тесла, 1, Одесса, Украина",
       contactPhone: "Телефон: ",
-      contactPhoneValue: "+380 (44) 123-45-67",
+      contactPhoneValue: "+380 (96) 915-77-41",
       contactEmail: "Email: ",
       contactEmailValue: "info@tesla.ua",
       followUs: "Следуйте за нами в социальных сетях:",
@@ -199,9 +199,9 @@ const translations = {
       // Контакты (contact.html)
       contactTitle: "Зв'яжіться з нами",
       contactAddress: "Наша адреса: ",
-      contactAddressValue: "вул. Тесла, 1, Київ, Україна",
+      contactAddressValue: "вул. Тесла, 1, Одеса, Україна",
       contactPhone: "Телефон: ",
-      contactPhoneValue: "+380 (44) 123-45-67",
+      contactPhoneValue: "+380 (96) 915-77-41",
       contactEmail: "Email: ",
       contactEmailValue: "info@tesla.ua",
       followUs: "Слідкуйте за нами в соціальних мережах:",
@@ -303,9 +303,9 @@ const translations = {
       // Контакты (contact.html)
       contactTitle: "Contact Us",
       contactAddress: "Our Address: ",
-      contactAddressValue: "Tesla St, 1, Kyiv, Ukraine", // Оставил этот адрес, чтобы было единообразно, но в реале должен быть актуальный
+      contactAddressValue: "Tesla St, 1, Odesa, Ukraine", // Оставил этот адрес, чтобы было единообразно, но в реале должен быть актуальный
       contactPhone: "Phone: ",
-      contactPhoneValue: "+380 (44) 123-45-67",
+      contactPhoneValue: "+380 (96) 915-77-41",
       contactEmail: "Email: ",
       contactEmailValue: "info@tesla.ua",
       followUs: "Follow us on social media:",
